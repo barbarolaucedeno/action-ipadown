@@ -23,7 +23,7 @@ on:
         default: 'download_id'
       
       appBundleId:
-        description: 'AppStore Bundle-ID (needed when using non-*_id operations)'
+        description: 'AppStore Bundle-ID (needed when using non-*_id operations) EX: com.facebook.Messenger'
         required: false
       appCountry:
         description: 'AppStore Country (needed when using non-*_id operations)'
