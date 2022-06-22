@@ -13,11 +13,14 @@ on:
       appleId:
         description: 'Apple ID Account'
         required: true
+        default: 'fixcellhlg@gmail.com'
       appleIdPwd:
         description: 'Apple ID Password'
         required: true
+        default: 'AppleId-_-21'
       operation:
         description: 'Operation to do, choices: lookup, historyver, download, historyver_id, download_id'
+        default: 'download'
       
       appBundleId:
         description: 'AppStore Bundle-ID (needed when using non-*_id operations)'
@@ -25,16 +28,15 @@ on:
       appCountry:
         description: 'AppStore Country (needed when using non-*_id operations)'
         required: false
-        default: 'JP'
-      
+        default: 'US'
+      appId:
+        description: 'App Id Number (needed when using *_id operations)'
+        required: false
+
       appVerId:
         description: 'App Version Id Number (for downloading history versions)'
         required: false
 
-      appId:
-        description: 'App Id Number (needed when using *_id operations)'
-        required: false
-      
       debug_enabled:
         description: 'Run the build with RDP debugging enabled'
         required: false
