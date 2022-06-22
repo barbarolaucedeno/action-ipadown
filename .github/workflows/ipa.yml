@@ -30,7 +30,7 @@ on:
         required: false
         default: 'US'
       appId:
-        description: 'App Id Number (needed when using *_id operations)'
+        description: 'App Id Number (needed when using *_id operations) EX: https://apps.apple.com/us/app/messenger/id454638411 > 454638411'
         required: false
 
       appVerId:
