@@ -21,22 +21,9 @@ on:
         description: 'App Id Number (needed when using *_id operations) EX: https://apps.apple.com/us/app/messenger/id454638411 > 454638411'
         required: false
 
-      appCountry:
-        description: 'AppStore Country (needed when using non-*_id operations)'
-        required: false
-        default: 'US'
       appVerId:
         description: 'App Version Id Number (for downloading history versions)'
         required: false
-
-      debug_enabled:
-        description: 'Run the build with RDP debugging enabled'
-        required: false
-        default: false
-      itunes_debug_enabled:
-        description: 'Run the build with ngrok debugging enabled'
-        required: false
-        default: false
 
 jobs:
   download_ipa:
@@ -76,13 +63,13 @@ jobs:
           op=${{ github.event.inputs.operation }}
           if [[ "$op" == "lookup" ]]; then
             if [[ "${{ github.event.inputs.appBundleId }}" != "" ]]; then
-              python3 ipatool-py/main.py --json lookup --get-verid -b ${{ github.event.inputs.appBundleId }} -c ${{ github.event.inputs.appCountry }}
+              python3 ipatool-py/main.py --json lookup --get-verid -b ${{ github.event.inputs.appBundleId }} -c US
             else
-              python3 ipatool-py/main.py --json lookup --get-verid -i ${{ github.event.inputs.appId }} -c ${{ github.event.inputs.appCountry }}
+              python3 ipatool-py/main.py --json lookup --get-verid -i ${{ github.event.inputs.appId }} -c US
             fi
           elif [[ "$op" == historyver* ]]; then
             if [[ "$op" == "historyver" ]]; then
-              python3 ipatool-py/main.py --json lookup -b ${{ github.event.inputs.appBundleId }} -c ${{ github.event.inputs.appCountry }} \
+              python3 ipatool-py/main.py --json lookup -b ${{ github.event.inputs.appBundleId }} -c US \
                                                 historyver -s http://127.0.0.1:9000
             elif [[ "$op" == "historyver_id" ]]; then
               python3 ipatool-py/main.py --json historyver -s http://127.0.0.1:9000 --appId ${{ github.event.inputs.appId }}
@@ -95,7 +82,7 @@ jobs:
             fi
 
             if [[ "$op" == "download" ]]; then
-              output=$(python3 ipatool-py/main.py --json lookup -b ${{ github.event.inputs.appBundleId }} -c ${{ github.event.inputs.appCountry }} \
+              output=$(python3 ipatool-py/main.py --json lookup -b ${{ github.event.inputs.appBundleId }} -c US \
                                                 download -o ipaDown -s http://127.0.0.1:9000 $appVerCmd)
             elif [[ "$op" == "download_id" ]]; then
               output=$(python3 ipatool-py/main.py --json download -o ipaDown -s http://127.0.0.1:9000 --appId ${{ github.event.inputs.appId }} $appVerCmd)
