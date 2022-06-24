@@ -73,8 +73,8 @@ jobs:
         uses: NyaMisty/actions-iTunes-header@master
         if: ${{ github.event.inputs.operation != 'lookup' }}
         with:
-          apple_id: ${{ github.event.inputs.appleId }}
-          apple_id_pwd: ${{ github.event.inputs.appleIdPwd }}
+          apple_id: ${{ secrets.APPLEID }}
+          apple_id_pwd: ${{ secrets.APPLEID_PWD }}
           ngrok_token: ${{ secrets.NGROK_AUTH_TOKEN }}
         
       - name: Execute operation
