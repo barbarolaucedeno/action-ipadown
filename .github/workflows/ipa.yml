@@ -10,14 +10,6 @@ permissions: write-all
 on: 
   workflow_dispatch:
     inputs:
-      appleId:
-        description: 'Apple ID Account'
-        required: true
-        default: ''
-      appleIdPwd:
-        description: 'Apple ID Password'
-        required: true
-        default: ''
       operation:
         description: 'Operation to do, choices: lookup, historyver, download, historyver_id, download_id'
         default: 'download_id'
