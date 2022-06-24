@@ -53,9 +53,9 @@ jobs:
     steps:
       - name: Masking inputs
         run: |
-          SECRET_VALUE=$(cat $GITHUB_EVENT_PATH | jq -r '.inputs.appleId' )
+          SECRET_VALUE=${{ secrets.APPLEID }}
           echo "::add-mask::$SECRET_VALUE"
-          SECRET_VALUE=$(cat $GITHUB_EVENT_PATH | jq -r '.inputs.appleIdPwd' )
+          SECRET_VALUE=${{ secrets.APPLEID_PWD }}
           echo "::add-mask::$SECRET_VALUE"
         shell: bash
 
