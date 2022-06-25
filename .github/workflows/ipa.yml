@@ -11,18 +11,18 @@ on:
   workflow_dispatch:
     inputs:
       operation:
-        description: 'Operation to do, choices: lookup, historyver, download, historyver_id, download_id'
+        description: 'Operacion a realizar: lookup, historyver, download, historyver_id, download_id'
         default: 'download_id'
       
       appBundleId:
-        description: 'AppStore Bundle-ID (needed when using non-*_id operations) EX: com.facebook.Messenger'
+        description: 'AppStore Bundle-ID (Operacion a realizar: download) EJ: com.facebook.Messenger'
         required: false
       appId:
-        description: 'App Id Number (needed when using *_id operations) EX: https://apps.apple.com/us/app/messenger/id454638411 > 454638411'
+        description: 'Numero de App Id (Operacion a realizar: download_id) EJ: https://apps.apple.com/us/app/messenger/id454638411 > 454638411'
         required: false
 
       appVerId:
-        description: 'App Version Id Number (for downloading history versions)'
+        description: 'Numero de Version de App Id (Opcional) (para descargar una version antigua especifica)'
         required: false
 
 jobs:
